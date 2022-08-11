@@ -5,7 +5,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 
 const Popular = () => {
   const [popular, setPopular] = useState([]);
-  const API = "3d0f4a1a15d14191b69427f40a716cc8";
+  const API = "b173060271ab463981d72c06b38d6b7e";
   useEffect(() => {
     getPopular();
   }, []);

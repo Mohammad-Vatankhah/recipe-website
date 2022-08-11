@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const Searched = () => {
-  const API = "3d0f4a1a15d14191b69427f40a716cc8";
+  const API = "b173060271ab463981d72c06b38d6b7e";
   const [searched, setSearched] = useState([]);
   let params = useParams();
   const getSearched = async (name) => {
@@ -12,17 +12,21 @@ const Searched = () => {
     );
     const data = await api.json();
     setSearched(data.results);
+    console.log(searched);
   };
   useEffect(() => {
     getSearched(params.search);
   }, [params.search]);
+
   return (
     <Grid>
       {searched.map((item) => {
-        <Card key={item.id}>
-          <img src={item.image} alt={item.title} />
-          <h4>{item.title}</h4>
-        </Card>;
+        return (
+          <Card key={item.id}>
+            <img src={item.image} alt={item.title} />
+            <h4>{item.title}</h4>
+          </Card>
+        );
       })}
     </Grid>
   );

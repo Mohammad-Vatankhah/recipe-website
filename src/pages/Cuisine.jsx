@@ -5,7 +5,7 @@ import { NavLink, useParams } from "react-router-dom";
 
 const Cuisine = () => {
   let params = useParams();
-  const API = "3d0f4a1a15d14191b69427f40a716cc8";
+  const API = "b173060271ab463981d72c06b38d6b7e";
   const [cuisine, setCuisine] = useState([]);
   const getCousine = async (name) => {
     const api = await fetch(
