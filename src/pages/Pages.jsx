@@ -9,7 +9,7 @@ const Pages = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Cuisine/:type" element={<Cuisine />} />
-      <Route path="searcherd/:search" element={Searched}/>
+      <Route path="/searched/:search" element={<Searched />}/>
     </Routes>
   );
 };

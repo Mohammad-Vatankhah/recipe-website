@@ -13,7 +13,6 @@ const Cuisine = () => {
     );
     const data = await api.json();
     setCuisine(data.results);
-    console.log(data);
   };
   useEffect(() => {
     getCousine(params.type);
