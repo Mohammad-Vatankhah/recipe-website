@@ -12,7 +12,6 @@ const Searched = () => {
     );
     const data = await api.json();
     setSearched(data.results);
-    console.log(searched);
   };
   useEffect(() => {
     getSearched(params.search);
