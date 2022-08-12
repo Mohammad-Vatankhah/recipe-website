@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-
+import { Link } from "react-router-dom";
 const Popular = () => {
   const [popular, setPopular] = useState([]);
   const API = "b173060271ab463981d72c06b38d6b7e";
@@ -35,13 +35,15 @@ const Popular = () => {
             gap: "5rem",
           }}
         >
-          {popular.map((recepie) => {
+          {popular.map((recipe) => {
             return (
-              <SplideSlide key={recepie.id}>
+              <SplideSlide key={recipe.id}>
                 <Card>
-                  <p>{recepie.title}</p>
-                  <img src={recepie.image} alt={recepie.title} />
-                  <Gradient />
+                  <Link to={"/recipe/" + recipe.id}>
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <Gradient />
+                  </Link>
                 </Card>
               </SplideSlide>
             );
@@ -62,6 +64,7 @@ const Card = styled.div`
   overflow: hidden;
   position: relative;
   img {
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
     position: absolute;
     border-radius: 2rem;
     left: 0;
