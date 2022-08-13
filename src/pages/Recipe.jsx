@@ -4,26 +4,27 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 
 const Recipe = () => {
-  const API = "b173060271ab463981d72c06b38d6b7e";
+  const API = "3d0f4a1a15d14191b69427f40a716cc8";
   let params = useParams();
-  const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState("instructions");
+  const [detailData, setDetailData] = useState({});
   useEffect(() => {
     const getDetails = async (name) => {
       const api = await fetch(
         `https://api.spoonacular.com/recipes/${name}/information?apiKey=${API}`
       );
       const data = await api.json();
-      setDetails(data);
-      console.log(details);
+      setTimeout(() => 1000)
+      setDetailData(data);
+      console.log(detailData); /* doesn't work :(  why? */
     };
     getDetails(params.name);
   }, [params.name]);
   return (
     <DetailWrapper>
       <div>
-        <h2>{details.title}</h2>
-        <img src={details.image} alt="" />
+        <h2>{detailData.title}</h2>
+        <img src={detailData.image} alt="" />
       </div>
       <Info>
         <Button
@@ -42,16 +43,23 @@ const Recipe = () => {
         >
           Ingredients
         </Button>
+        {activeTab === 'instructions' && (
         <div>
-          <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
-          <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
+          <h3 dangerouslySetInnerHTML={{ __html: detailData.summary }}></h3>
+          <h3
+            dangerouslySetInnerHTML={{ __html: detailData.instructions }}
+          ></h3>
         </div>
+        )}
+        {activeTab === 'ingredients' && (
         <ul>
-          {/* {console.log(details)}
-          {details.extendedIngredients.map((ingredient) => (
+          {/*this doesn't work correctly. i don't know why*/}
+          {/* {console.log(detailData)}
+          {detailData.extendedIngredients.map((ingredient) => (
             <li key={ingredient.id}>{ingredient.original}</li>
           ))} */}
         </ul>
+        )}
       </Info>
     </DetailWrapper>
   );

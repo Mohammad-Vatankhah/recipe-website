@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Searched = () => {
-  const API = "b173060271ab463981d72c06b38d6b7e";
+  const API = "z";
   const [searched, setSearched] = useState([]);
   let params = useParams();
   const getSearched = async (name) => {
@@ -22,8 +23,10 @@ const Searched = () => {
       {searched.map((item) => {
         return (
           <Card key={item.id}>
-            <img src={item.image} alt={item.title} />
-            <h4>{item.title}</h4>
+            <Link to={'/recipe/' + item.id}>
+              <img src={item.image} alt={item.title} />
+              <h4>{item.title}</h4>
+            </Link>
           </Card>
         );
       })}
