@@ -82,6 +82,11 @@ const DetailWrapper = styled.div`
   ul {
     margin-top: 2rem;
   }
+
+  img{
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    border-radius: 10px;
+  }
 `;
 
 const Button = styled.button`
