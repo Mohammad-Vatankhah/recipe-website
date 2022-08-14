@@ -54,10 +54,10 @@ const Recipe = () => {
         {activeTab === 'ingredients' && (
         <ul>
           {/*this doesn't work correctly. i don't know why*/}
-          {/* {console.log(detailData)}
+          {console.log(detailData)}
           {detailData.extendedIngredients.map((ingredient) => (
             <li key={ingredient.id}>{ingredient.original}</li>
-          ))} */}
+          ))}
         </ul>
         )}
       </Info>
