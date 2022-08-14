@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Searched = () => {
-  const API = "z";
+  const API = "b173060271ab463981d72c06b38d6b7e";
   const [searched, setSearched] = useState([]);
   let params = useParams();
   const getSearched = async (name) => {
